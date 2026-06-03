@@ -1,0 +1,430 @@
+--- PAGE 1 ---
+SphereSound: Sistema Interactivo de Audio 3D
+Basado en Movimiento en Realidad Virtual
+Jordy Araque, Germ ´an Vergara, Ivonne Cardozo
+Programa de Ingenier ´ıa en Multimedia
+Asignatura: Audio y Video
+Universidad Militar Nueva Granada
+Docente: Gabriel Rodr ´ıguez
+Abstract—This paper presents the design of an interactive
+virtual reality system in which the movement of a spherical object
+generates real-time three-dimensional spatial audio. Physical
+variables such as position, direction, and velocity are mapped to
+digital signal processing parameters. The system implements bin-
+aural spatialization based on Head-Related Transfer Functions
+and includes a trajectory recording mechanism that reconstructs
+the generated sound sequence during inactivity. The project
+demonstrates an engineering-based multimedia system integrat-
+ing real-time rendering, procedural audio, and performance
+evaluation metrics.
+Index Terms—Virtual Reality, 3D Audio, Binaural Spatializa-
+tion, Digital Signal Processing, Procedural Audio, Multimedia
+Engineering.
+I. RESUMEN
+Este documento presenta el dise ˜no de un sistema interactivo
+en realidad virtual donde el movimiento de un objeto esf ´erico
+genera audio espacial tridimensional en tiempo real. El sistema
+captura variables f´ısicas como posici´on, direcci´on y velocidad,
+y las transforma en par ´ametros de procesamiento digital de
+se˜nales (DSP). Se implementa espacializaci ´on binaural basada
+en HRTF y se incluye un mecanismo de registro de trayectoria
+que permite reconstruir la secuencia sonora generada durante
+la interacci ´on. El proyecto integra renderizado en tiempo real,
+audio procedural y evaluaci´on de desempe ˜no, evidenciando un
+enfoque ingenieril en multimedia interactiva.
+II. DESCRIPCI ´ONGENERAL DELPROYECTO
+¿C´omo abordar la ausencia de sistemas en realidad virtual
+que conviertan el movimiento tridimensional del usuario en
+sonido espacial din ´amico en tiempo real, aprovechando las
+capacidades de interacci ´on inmersiva del entorno VR?
+El proyecto consiste en el desarrollo de un sistema inter-
+activo en realidad virtual (VR) donde el movimiento de una
+esfera dentro de un entorno tridimensional genera audio 3D
+din´amico en tiempo real. El sistema captura variables f ´ısicas
+como posici ´on, direcci ´on y velocidad, y las transforma en
+par´ametros de procesamiento digital de se ˜nales (DSP), permi-
+tiendo que el sonido responda directamente al comportamiento
+del objeto.
+Cuando la esfera permanece en reposo durante un tiempo
+determinado, el sistema reproduce la secuencia sonora previ-
+amente generada a partir de su trayectoria, funcionando como
+un mecanismo de reconstrucci ´on auditiva de la interacci ´on.
+El enfoque del proyecto es claramente ingenieril, ya que
+implica modelado matem ´atico del movimiento, mapeo de
+datos f ´ısicos a par ´ametros sonoros, espacializaci ´on binaural
+mediante HRTF y evaluaci ´on de desempe ˜no en tiempo real
+dentro de un entorno VR.
+III. OBJETIVOGENERAL
+Desarrollar una experiencia inmersiva en realidad virtual
+donde el movimiento tridimensional de un objeto genere
+audio 3D din ´amico en tiempo real, aplicando principios de
+procesamiento digital de se ˜nales, espacializaci ´on binaural e
+integraci´on multimedia interactiva.
+IV. OBJETIVOSESPEC ´IFICOS
+•Analizar los principios de procesamiento digital de
+se˜nales y espacializaci ´on binaural necesarios para la
+generaci´on de audio 3D en entornos de realidad virtual.
+•Dise ˜nar el modelo de mapeo entre variables f ´ısicas
+tridimensionales (posici ´on, direcci ´on y velocidad) y
+par´ametros sonoros din ´amicos.
+•Implementar un entorno interactivo en realidad virtual
+que permita la manipulaci ´on en tiempo real de un objeto
+tridimensional.
+•Integrar t ´ecnicas de espacializaci ´on binaural basadas en
+HRTF para la generaci ´on de audio 3D en tiempo real.
+•Desarrollar un sistema de generaci ´on y registro de trayec-
+torias que permita la reproducci ´on posterior de la secuen-
+cia sonora generada.
+•Evaluar el desempe ˜no del sistema en t´erminos de latencia,
+estabilidad y respuesta en tiempo real.
+V. JUSTIFICACI ´ONT ´ECNICA DESDE LAINGENIER ´IA EN
+MULTIMEDIA
+Este proyecto no consiste en la producci ´on de un contenido
+audiovisual tradicional, sino en el dise ˜no de un sistema inter-
+activo que convierte datos de movimiento tridimensional en
+par´ametros de procesamiento digital de audio.
+Se integran conceptos de procesamiento digital de se ˜nales
+(DSP), espacializaci ´on binaural mediante funciones de trans-
+ferencia relacionadas con la cabeza (HRTF), diferencias in-
+teraurales de tiempo (ITD), diferencias interaurales de nivel
+(ILD), audio din ´amico no lineal, modelado matem ´atico del
+movimiento, renderizado en tiempo real e integraci ´on VR.
+--- PAGE 2 ---
+El componente ingenieril se evidencia en la programaci ´on
+del sistema de captura y an ´alisis de movimiento, la imple-
+mentaci´on del mapeo matem ´atico entre variables f ´ısicas y
+par´ametros sonoros, el dise ˜no de algoritmos de modulaci ´on
+y filtrado din ´amico, la implementaci ´on de atenuaci ´on por
+distancia y la medici ´on de latencia y rendimiento del sistema.
+VI. JUSTIFICACI ´ONCREATIVA DESDE LAINGENIER ´IA EN
+MULTIMEDIA
+El proyecto SphereSound VR busca explorar la relaci ´on
+entre el movimiento corporal y la generaci ´on de sonido en
+un entorno inmersivo. Creativamente, propone transformar la
+acci´on f´ısica del usuario en expresi ´on sonora, convirti ´endolo
+en un participante activo dentro de la experiencia audiovisual.
+A diferencia de los entornos tradicionales donde el sonido
+cumple un papel secundario, en esta propuesta el audio es el
+eje central de la interacci ´on. Cada movimiento de la esfera
+produce una respuesta sonora espacializada, permitiendo que
+el usuario construya una composici ´on en tiempo real dentro
+del espacio virtual.
+La reproducci ´on autom´atica de la secuencia generada intro-
+duce una dimensi ´on reflexiva, donde el usuario puede percibir
+su propio recorrido convertido en estructura sonora.
+En s´ıntesis, el proyecto plantea el espacio virtual como un
+instrumento interactivo, integrando movimiento, percepci ´on y
+sonido en una experiencia inmersiva y expresiva.
+VII. ARQUITECTURA DELSISTEMA
+El sistema se estructura en los siguientes m ´odulos:
+A. Captura de Movimiento
+Obtenci´on de posici ´on tridimensional (Vector3: X, Y , Z) y
+c´alculo de velocidad mediante:
+v= pos(t)−pos(t−1)
+∆t (1)
+B. Procesamiento de Datos
+Normalizaci´on de valores y suavizado de variaciones medi-
+ante interpolaci ´on.
+C. Mapeo F ´ısico-Sonoro
+Velocidad controla la frecuencia (pitch), la direcci ´on deter-
+mina el posicionamiento espacial, la distancia regula la aten-
+uaci´on y los cambios bruscos de trayectoria activan procesos
+de modulaci ´on.
+D. Motor de Audio 3D
+Implementaci´on de espacializaci ´on binaural basada en
+HRTF con procesamiento en tiempo real y salida compatible
+con gafas VR.
+E. Sistema de Registro
+Almacenamiento temporal de trayectoria y reconstrucci ´on
+sonora autom ´atica cuando el objeto entra en reposo.
+VIII. COMPONENTE DEAUDIO
+Se implementa audio espacial tridimensional, generaci ´on
+sonora en tiempo real, filtros pasa-bajos dependientes de
+velocidad, modulaci ´on de frecuencia o amplitud, variaci ´on
+din´amica de pitch, atenuaci ´on por distancia y registro de
+trayectoria sonora. Se utilizan formatos sin compresi ´on (W A V)
+y se eval ´ua la latencia entre movimiento y respuesta sonora.
+IX. COMPONENTE DEVIDEO
+El entorno se desarrolla en Unreal con soporte VR, ren-
+derizado en tiempo real, shader reactivo aplicado a la esfera
+seg´un intensidad sonora, visualizaci ´on de trayectoria, ilumi-
+naci´on din ´amica y exportaci ´on en formato MP4 (H.264) para
+documentaci´on.
+X. INTEGRACI ´ONMULTIMEDIA
+Se garantiza sincronizaci´on en tiempo real entre movimiento
+f´ısico y respuesta sonora, implementaci ´on en gafas VR Meta,
+evaluaci´on de latencia en milisegundos, verificaci ´on de esta-
+bilidad en FPS y medici ´on de uso de CPU en procesamiento
+de audio, asegurando un producto final funcional e interactivo.
+XI. RESULTADOESPERADO
+Se espera obtener un sistema inmersivo donde el usuario
+pueda generar sonido tridimensional mediante movimiento,
+percibir variaciones f ´ısicas coherentes del audio seg ´un ve-
+locidad y trayectoria, escuchar la reconstrucci ´on sonora de su
+interacci´on y experimentar una integraci ´on fluida entre audio
+y video en tiempo real.
+XII. AVANCE DELSEGUNDOCORTE
+Esta secci ´on documenta el progreso t ´ecnico alcanzado al
+cierre del segundo corte evaluativo, en concordancia con los
+tres criterios establecidos: prototipo funcional, documentaci ´on
+t´ecnica del progreso y ajustes seg ´un retroalimentaci ´on previa.
+Clic para ver v ´ıdeo explicativo en Drive
+A. Enfoque Metodol ´ogico Adoptado
+El desarrollo del proyecto sigue un enfoque iterativo e
+incremental, dividido en siete fases. Cada fase corresponde
+a un m ´odulo funcional independiente que es validado antes
+de su integraci ´on con los dem ´as componentes. Esta estrategia
+permite detectar errores tempranos, reducir la complejidad de
+integraci´on y garantizar la estabilidad del sistema final.
+B. Arquitectura General Implementada
+La arquitectura del sistema se consolid ´o en cuatro m ´odulos
+principales con interacci ´on en tiempo real:
+1)M ´odulo de captura de movimiento (hardware):
+Adquisici´on de datos f ´ısicos mediante sensor MPU6050
+conectado a Arduino. Lee aceleraci´on e inclinaci´on y los
+transmite por comunicaci ´on serial.
+2)M ´odulo de procesamiento de datos:Interpreta, filtra y
+clasifica las se ˜nales capturadas en movimientos discre-
+tos: arriba, abajo, izquierda, derecha.
+--- PAGE 3 ---
+3)M ´odulo de entorno virtual (VR):Desarrollado en
+Unity con Meta Quest SDK. Presenta el entorno in-
+teractivo tridimensional y la retroalimentaci ´on visual al
+usuario.
+4)M ´odulo de audio:Genera audio tridimensional en
+tiempo real con efectos sonoros din ´amicos seg ´un la
+interacci´on del usuario.
+C. Fases Completadas al Segundo Corte
+1) Fase 1 — Configuraci ´on del Entorno VR:Se configur ´o
+el motor gr ´afico Unity con el Meta Quest SDK, se cre ´o una
+escena tridimensional base y se verific ´o la correcta visual-
+izaci´on del entorno mediante las gafas VR. Esta fase garantiza
+la estabilidad del entorno antes de incorporar interacci ´on o
+hardware.
+2) Fase 2 — Dise ˜no e Implementaci ´on de la Interacci ´on:
+Se desarroll ´o la l ´ogica del sistema interactivo sin dependencia
+de hardware f ´ısico. Las entradas se simulan mediante teclado
+(teclas W, A, S, D) para permitir la validaci ´on temprana
+del comportamiento del sistema. Se implement ´o un motor
+de secuencias basadas en memoria que genera patrones de
+movimiento aleatorios, los muestra al usuario y eval ´ua su
+respuesta.
+3) Fase 3 — Implementaci ´on del Sistema Audiovisual:Se
+asignaron efectos sonoros a cada tipo de movimiento, se im-
+plement´o retroalimentaci ´on auditiva diferenciada para acierto
+y error, y se incorporaron elementos visuales (indicadores
+de color y animaciones) sincronizados con la respuesta del
+sistema.
+D. Herramientas Utilizadas
+•Motor gr ´afico: Unity
+•Plataforma VR: Meta Quest SDK
+•Hardware: Arduino con sensor MPU6050
+•Lenguajes de programaci ´on: C# (Unity) y C/C++ (Ar-
+duino)
+•Motor de audio: Sistema de audio integrado de Unity
+E. Flujo de Datos del Sistema
+El sistema opera bajo el siguiente flujo de datos:
+1) Movimiento f ´ısico del usuario
+2) Sensor MPU6050 adquiere datos de aceleraci ´on e incli-
+naci´on
+3) Arduino procesa y transmite por comunicaci ´on serial
+4) Unity recibe e interpreta los datos
+5) Sistema l ´ogico procesa la interacci ´on
+6) Se genera audio 3D y respuesta visual simult ´anea
+7) El usuario recibe retroalimentaci ´on audiovisual inmedi-
+ata
+XIII. PROTOTIPOFUNCIONAL— PRIMERSCRIPT DE
+UNITY
+A. Descripci ´on del Prototipo
+Como primer prototipo funcional se implement ´o una escena
+en Unity que eval ´ua la capacidad del sistema de generar
+secuencias de movimiento, recibirlas del usuario y procesarlas
+con retroalimentaci ´on audiovisual en tiempo real. Este pro-
+totipo valida la l ´ogica central del sistema antes de incorporar
+el hardware f ´ısico y la espacializaci ´on binaural completa.
+B. Estructura de la Escena Unity
+La escena requiere la siguiente jerarqu ´ıa de objetos:
+•Canvascon cuatro elementos UI:InstructionText,
+SequenceText,InputTextyFeedbackPanel.
+•GameManager(objeto vac ´ıo) con los componentes
+SequenceManageryAudioSource.
+•AudioSourceconfigurado conPlay On Awakedesacti-
+vado y volumen en 0.5.
+•Tres clips de audio asignados en el Inspector:
+moveSound(click/beep),successSound(tono pos-
+itivo) yfailSound(tono negativo).
+C. C ´odigo Fuente — SequenceManager.cs
+Listing 1. Script principal del prototipo interactivo en Unity
+1using System.Collections;
+2using System.Collections.Generic;
+3using UnityEngine;
+4using UnityEngine.UI;
+5
+6public class SequenceManager : MonoBehaviour
+7{
+8[Header("UI")]
+9public Text instructionText;
+10public Text sequenceText;
+11public Text inputText;
+12public Image feedbackPanel;
+13
+14[Header("Audio")]
+15public AudioSource audioSource;
+16public AudioClip moveSound;
+17public AudioClip successSound;
+18public AudioClip failSound;
+19
+20private List<string> sequence = new List<string
+>();
+21private List<string> playerInput = new List<
+string>();
+22private bool isPlayerTurn = false;
+23
+24void Start()
+25{
+26if (audioSource == null)
+27audioSource = GetComponent<AudioSource
+>();
+28StartCoroutine(StartGame());
+29}
+30
+31IEnumerator StartGame()
+32{
+33instructionText.text = "Memoriza la
+secuencia...";
+34sequenceText.text = "";
+35inputText.text = "";
+36yield return new WaitForSeconds(1f);
+37GenerateSequence(3);
+38yield return StartCoroutine(ShowSequence());
+39instructionText.text = "Repite la secuencia"
+;
+40isPlayerTurn = true;
+41}
+42
+43void Update()
+44{
+45if (!isPlayerTurn) return;
+--- PAGE 4 ---
+46if (Input.GetKeyDown(KeyCode.W))
+RegisterInput("Up");
+47if (Input.GetKeyDown(KeyCode.S))
+RegisterInput("Down");
+48if (Input.GetKeyDown(KeyCode.A))
+RegisterInput("Left");
+49if (Input.GetKeyDown(KeyCode.D))
+RegisterInput("Right");
+50}
+51
+52void GenerateSequence(int length)
+53{
+54sequence.Clear();
+55string[] directions = { "Up", "Down", "Left"
+, "Right" };
+56for (int i = 0; i < length; i++)
+57sequence.Add(directions[Random.Range(0,
+directions.Length)]);
+58}
+59
+60IEnumerator ShowSequence()
+61{
+62sequenceText.text = "";
+63foreach (string dir in sequence)
+64{
+65sequenceText.text = dir;
+66PlaySound(moveSound);
+67yield return new WaitForSeconds(0.8f);
+68sequenceText.text = "";
+69yield return new WaitForSeconds(0.3f);
+70}
+71sequenceText.text = "???";
+72}
+73
+74void RegisterInput(string input)
+75{
+76playerInput.Add(input);
+77inputText.text += input + " ";
+78PlaySound(moveSound);
+79if (playerInput.Count == sequence.Count)
+80CheckSequence();
+81}
+82
+83void CheckSequence()
+84{
+85isPlayerTurn = false;
+86for (int i = 0; i < sequence.Count; i++)
+87{
+88if (sequence[i] != playerInput[i])
+89{
+90StartCoroutine(ShowResult(false));
+91return;
+92}
+93}
+94StartCoroutine(ShowResult(true));
+95}
+96
+97IEnumerator ShowResult(bool success)
+98{
+99if (success)
+100{
+101instructionText.text = "Correcto";
+102feedbackPanel.color = Color.green;
+103PlaySound(successSound);
+104}
+105else
+106{
+107instructionText.text = "Incorrecto";
+108feedbackPanel.color = Color.red;
+109PlaySound(failSound);
+110}
+111yield return new WaitForSeconds(2f);
+112ResetGame();
+113StartCoroutine(StartGame());
+114}
+115
+116void ResetGame()
+117{
+118playerInput.Clear();
+119inputText.text = "";
+120feedbackPanel.color = Color.white;
+121}
+122
+123void PlaySound(AudioClip clip)
+124{
+125if (audioSource != null && clip != null)
+126audioSource.PlayOneShot(clip);
+127}
+128}
+D. Resultado Funcional del Prototipo
+Al ejecutar la escena, el sistema presenta el siguiente
+comportamiento verificado:
+1) Se genera y muestra una secuencia aleatoria de direc-
+ciones.
+2) Se reproduce un tono por cada direcci ´on mostrada.
+3) El usuario ingresa la secuencia mediante teclado.
+4) Cada tecla presionada reproduce un sonido de confir-
+maci´on.
+5) Al completar la entrada, el sistema eval ´ua la respuesta:
+•Correcto:panel verde con sonido positivo.
+•Incorrecto:panel rojo con sonido negativo.
+6) El juego se reinicia autom ´aticamente con una nueva
+secuencia.
+XIV. AJUSTESRESPECTO ALCORTEANTERIOR
+Con base en la retroalimentaci ´on del docente sobre la
+propuesta inicial, se realizaron los siguientes ajustes t ´ecnicos:
+•Motor gr ´afico:Se migr ´o de Unreal Engine aUnity,
+dado su mejor soporte nativo para el Meta Quest SDK
+y la disponibilidad de herramientas de audio espacial
+integradas.
+•Incorporaci ´on de hardware f ´ısico:Se defini ´o e integr ´o
+el m ´odulo Arduino con sensorMPU6050como compo-
+nente de captura de movimiento real, reemplazando la
+propuesta inicial de captura puramente virtual.
+•Validaci ´on por fases:Se adopt ´o un enfoque iterativo
+por m ´odulos que permite entregar avances funcionales
+verificables en cada corte, en lugar de un desarrollo
+monol´ıtico.
+•Interacci ´on con memoria:Se incorpor ´o la l ´ogica de
+secuencias y evaluaci ´on de respuesta del usuario como
+mecanismo de retroalimentaci ´on interactiva, alineado con
+el objetivo de reconstrucci ´on auditiva de trayectorias.

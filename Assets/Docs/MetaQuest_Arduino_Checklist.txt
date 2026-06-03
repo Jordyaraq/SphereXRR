@@ -1,0 +1,48 @@
+Checklist Meta Quest y Arduino
+==============================
+
+Meta Quest en la universidad
+----------------------------
+1. Instalar o activar OpenXR / Meta XR SDK en Package Manager.
+2. Abrir Project Settings > XR Plug-in Management.
+3. Activar OpenXR para Android.
+4. En OpenXR, activar los perfiles de Meta Quest Touch Controller.
+5. Cambiar Build Target a Android.
+6. En Player Settings:
+   - Minimum API Level compatible con el SDK de Meta.
+   - Scripting Backend: IL2CPP.
+   - Target Architectures: ARM64.
+7. Probar primero en Play Mode con teclado, luego hacer Build And Run en el visor.
+8. Revisar que el Canvas del HUD sea legible en VR. Si se necesita, convertirlo a World Space frente a la camara.
+
+Arduino + MPU6050
+-----------------
+El script ArduinoMpuInputBridge ya esta listo en Assets/Scripts.
+
+Como activarlo:
+1. Selecciona el GameObject que tiene MovementSequenceManager.
+2. Agrega el componente ArduinoMpuInputBridge si no esta agregado.
+3. Activa enableSerialInput.
+4. Cambia portName al puerto de la placa, por ejemplo COM3, COM4 o COM5.
+5. Usa el mismo baudRate en Unity y Arduino, recomendado 9600.
+
+Formato que Unity espera recibir por serial:
+UP
+DOWN
+LEFT
+RIGHT
+
+Tambien acepta:
+W
+S
+A
+D
+
+Ejemplo simple de salida Arduino:
+Serial.println("UP");
+
+Notas
+-----
+- Si Unity muestra que System.IO.Ports no esta disponible, cambia Api Compatibility Level a .NET Framework en Player Settings.
+- El puente serial esta apagado por defecto para no bloquear pruebas sin la placa.
+- El teclado WASD sigue funcionando aunque Arduino este activado.
